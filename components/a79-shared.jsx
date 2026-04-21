@@ -39,7 +39,7 @@ function A79Logo({ size = 22 }) {
 
 function A79Nav({ active, onThemeToggle, currentTheme = 'sunrise' }) {
   const links = [
-    { href: 'landing.html', label: 'หน้าแรก', key: 'home' },
+    { href: 'index.html', label: 'หน้าแรก', key: 'home' },
     { href: 'blog-listing.html', label: 'บทความ', key: 'blog' },
     { href: 'course.html', label: 'คอร์ส', key: 'course' },
     { href: 'community.html', label: 'ชุมชน', key: 'community' },
@@ -72,7 +72,7 @@ function A79Nav({ active, onThemeToggle, currentTheme = 'sunrise' }) {
         <a href="login.html" style={{
           color: 'var(--ink-2)', textDecoration: 'none', fontSize: 14,
         }}>เข้าสู่ระบบ</a>
-        <a href="landing.html#subscribe" className="btn btn-primary btn-sm">
+        <a href="login.html" className="btn btn-primary btn-sm">
           สมัครฟรี
         </a>
       </div>
