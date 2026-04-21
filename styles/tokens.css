@@ -1,0 +1,150 @@
+/* Atomic 79 — design tokens, 3 variants */
+
+:root {
+  --font-sans: 'IBM Plex Sans Thai', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+  /* shared */
+  --radius-sm: 8px;
+  --radius: 14px;
+  --radius-lg: 22px;
+  --radius-xl: 32px;
+
+  --shadow-sm: 0 1px 2px rgba(20, 20, 30, 0.05);
+  --shadow: 0 4px 16px -4px rgba(20, 20, 30, 0.08), 0 2px 4px rgba(20, 20, 30, 0.04);
+  --shadow-lg: 0 20px 50px -20px rgba(20, 20, 30, 0.18);
+}
+
+/* Variant A — Sunrise (warm cream, coral accent) */
+:root, [data-theme='sunrise'] {
+  --bg: oklch(0.975 0.014 85);
+  --bg-elev: oklch(1 0 0);
+  --bg-sunken: oklch(0.945 0.02 80);
+  --ink: oklch(0.22 0.03 260);
+  --ink-2: oklch(0.42 0.02 260);
+  --ink-3: oklch(0.58 0.015 260);
+  --line: oklch(0.88 0.015 80);
+  --line-strong: oklch(0.78 0.02 80);
+  --accent: oklch(0.68 0.18 35);       /* coral */
+  --accent-2: oklch(0.78 0.14 85);     /* amber */
+  --accent-ink: oklch(0.22 0.03 260);
+  --accent-on: oklch(1 0 0);
+  --success: oklch(0.62 0.14 155);
+  --placeholder: oklch(0.92 0.02 80);
+  --placeholder-ink: oklch(0.55 0.015 80);
+}
+
+/* Variant B — Chalk (off-white, single green accent, editorial) */
+[data-theme='chalk'] {
+  --bg: oklch(0.985 0.003 100);
+  --bg-elev: oklch(1 0 0);
+  --bg-sunken: oklch(0.955 0.005 100);
+  --ink: oklch(0.18 0.01 260);
+  --ink-2: oklch(0.38 0.01 260);
+  --ink-3: oklch(0.55 0.01 260);
+  --line: oklch(0.90 0.005 100);
+  --line-strong: oklch(0.78 0.008 100);
+  --accent: oklch(0.52 0.15 150);      /* forest green */
+  --accent-2: oklch(0.68 0.12 150);
+  --accent-ink: oklch(1 0 0);
+  --accent-on: oklch(1 0 0);
+  --success: oklch(0.55 0.14 155);
+  --placeholder: oklch(0.93 0.005 100);
+  --placeholder-ink: oklch(0.50 0.01 260);
+}
+
+/* Variant C — Mint (pale mint, forest + peach) */
+[data-theme='mint'] {
+  --bg: oklch(0.97 0.02 170);
+  --bg-elev: oklch(1 0 0);
+  --bg-sunken: oklch(0.935 0.025 170);
+  --ink: oklch(0.24 0.04 170);
+  --ink-2: oklch(0.42 0.03 170);
+  --ink-3: oklch(0.56 0.02 170);
+  --line: oklch(0.88 0.02 170);
+  --line-strong: oklch(0.76 0.03 170);
+  --accent: oklch(0.48 0.13 165);      /* forest */
+  --accent-2: oklch(0.78 0.11 50);     /* peach */
+  --accent-ink: oklch(1 0 0);
+  --accent-on: oklch(1 0 0);
+  --success: oklch(0.58 0.14 155);
+  --placeholder: oklch(0.92 0.025 170);
+  --placeholder-ink: oklch(0.48 0.03 170);
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-feature-settings: 'tnum' 0;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.55;
+}
+
+a { color: inherit; }
+
+.mono { font-family: var(--font-mono); }
+
+/* placeholder image utility */
+.ph {
+  background:
+    repeating-linear-gradient(135deg,
+      var(--placeholder) 0 14px,
+      color-mix(in oklab, var(--placeholder) 88%, black) 14px 15px);
+  color: var(--placeholder-ink);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+/* buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border-radius: 999px;
+  font: 500 15px/1 var(--font-sans);
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.08s ease, background 0.12s ease, border-color 0.12s ease;
+  white-space: nowrap;
+}
+.btn:active { transform: translateY(1px); }
+.btn-primary { background: var(--accent); color: var(--accent-on); }
+.btn-primary:hover { background: color-mix(in oklab, var(--accent) 88%, black); }
+.btn-ghost { background: transparent; color: var(--ink); border-color: var(--line-strong); }
+.btn-ghost:hover { background: var(--bg-sunken); }
+.btn-lg { padding: 16px 28px; font-size: 17px; }
+.btn-sm { padding: 8px 14px; font-size: 13px; }
+
+/* chip */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  background: var(--bg-sunken);
+  color: var(--ink-2);
+  border: 1px solid var(--line);
+}
+.chip.chip-accent { background: color-mix(in oklab, var(--accent) 18%, transparent); color: var(--accent); border-color: color-mix(in oklab, var(--accent) 28%, transparent); }
+
+/* card */
+.card {
+  background: var(--bg-elev);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}

@@ -1,0 +1,490 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Atomic 79 — Presentation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F5EEE0;
+    --bg-elev: #FFFFFF;
+    --bg-sunken: #EFE7D5;
+    --ink: #1F2340;
+    --ink-2: #5A5F7A;
+    --ink-3: #8A8FA5;
+    --line: #E4DDCA;
+    --line-strong: #CEC4AB;
+    --accent: #E68566;
+    --accent-2: #F2C477;
+    --accent-on: #FFFFFF;
+    --font-sans: 'IBM Plex Sans Thai', ui-sans-serif, system-ui, sans-serif;
+    --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; font-family: var(--font-sans); color: var(--ink); }
+
+  deck-stage section {
+    padding: 72px 96px;
+    background: var(--bg);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+  }
+  .kicker {
+    font-family: var(--font-mono); font-size: 18px; letter-spacing: 0.15em;
+    color: var(--ink-3); text-transform: uppercase;
+  }
+  h1.big {
+    font-size: 140px; font-weight: 700; letter-spacing: -0.03em;
+    line-height: 1; margin: 24px 0 24px;
+  }
+  h2 {
+    font-size: 72px; font-weight: 700; letter-spacing: -0.02em;
+    line-height: 1.08; margin: 20px 0 24px;
+  }
+  .sub { font-size: 30px; color: var(--ink-2); line-height: 1.5; max-width: 1200px; margin: 0; }
+  .logo-box {
+    width: 96px; height: 96px; border-radius: 24px;
+    background: var(--ink); color: var(--bg);
+    display: grid; place-items: center;
+    font-family: var(--font-mono); font-weight: 700; font-size: 44px;
+    letter-spacing: -0.02em;
+  }
+  .pill {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 10px 22px; border-radius: 999px;
+    background: var(--bg-elev); border: 1px solid var(--line);
+    font-size: 20px; color: var(--ink-2);
+  }
+  .pill-accent { background: rgba(230,133,102,0.14); color: var(--accent); border-color: rgba(230,133,102,0.3); }
+  .footer-bar {
+    position: absolute; left: 96px; right: 96px; bottom: 40px;
+    display: flex; justify-content: space-between;
+    font-family: var(--font-mono); font-size: 16px; color: var(--ink-3);
+    letter-spacing: 0.08em;
+  }
+  .card {
+    background: var(--bg-elev); border: 1px solid var(--line);
+    border-radius: 24px; padding: 40px;
+  }
+  .ph {
+    background: repeating-linear-gradient(135deg, #E4DDCA 0 20px, #D9D0B8 20px 21px);
+    color: #7A7560; font-family: var(--font-mono); font-size: 18px;
+    display: grid; place-items: center; border-radius: 16px;
+  }
+  .dot-big {
+    position: absolute; border-radius: 50%;
+    background: var(--accent); opacity: 0.18;
+    filter: blur(2px);
+  }
+</style>
+<script type="application/json" id="speaker-notes">
+["หน้าปกของงานนำเสนอครับ — แนะนำชื่อโปรเจกต์ Atomic 79 เพจความรู้การเงินสำหรับมือใหม่ เป็น Mockup Website ที่ทำตามโจทย์ที่อาจารย์มอบหมาย","สไลด์นี้จะเล่าปัญหาที่เจอ — คนไทยวัยทำงานอยากเริ่มออม/ลงทุน แต่ไม่รู้จะเริ่มจากตรงไหน เนื้อหาการเงินส่วนใหญ่ยากเกินไป กลัวขาดทุน ไม่มีชุมชนที่ถามได้โดยไม่โดนขายของ","แนะนำกลุ่มเป้าหมาย 3 persona หลัก — น้องมิวนักศึกษา พี่โอมนุษย์เงินเดือน และคุณแม่แนน Freelance ทั้ง 3 คนมีปัญหาร่วมกันคือไม่รู้จุดเริ่มต้นการเงิน","แนวคิดหลัก Big Idea — ให้ความรู้การเงินที่เข้าใจง่าย เข้าถึงได้ฟรีทุกคน Education-First, Short-form, Community-Driven, Freemium Model","นำเสนอโครงสร้างเว็บ 6 หน้าหลักที่ทำขึ้นเป็น Mockup","หน้าแรก Landing Page — Hero, Featured articles, Newsletter signup ออกแบบให้มือใหม่รู้สึกว่า 'เริ่มได้เลย' ไม่เทคนิคเกินไป","หน้ารวมบทความ Blog Listing — กรองตามหมวดหมู่ ออม ลงทุน ประกัน ภาษี หนี้ หุ้น","หน้าอ่านบทความ Blog Article — เน้น typography อ่านสบาย มีตัวอย่างการคำนวณจริง เช่น สูตร 50-30-20","หน้า Course / Membership — 3 แพลน Free, Member 199 บาท/เดือน, Pro 499 พร้อม catalog คอร์สและ FAQ","หน้า Community — ชุมชนถาม-ตอบ 3 ช่องทาง Facebook / Line / Discord พร้อม Top members","หน้า Login / Sign up — Split screen design มี social login และ highlight benefits","ออกแบบให้เปลี่ยนได้ 3 ธีมสี Sunrise, Chalk, Mint เพื่อให้ยืดหยุ่นและแสดงความเป็นไปได้ของแบรนด์","สรุป — Atomic 79 คือ Mockup ที่ออกแบบจาก Persona จริง 3 กลุ่ม ใช้ Big Idea เป็นหลัก และมี 6 หน้าเว็บครบสำหรับนำเสนอ ขอบคุณครับ"]
+</script>
+</head>
+<body>
+
+<deck-stage width="1920" height="1080">
+
+<!-- 01 TITLE -->
+<section data-label="Title">
+  <div class="dot-big" style="width:520px;height:520px;top:-120px;right:-80px;"></div>
+  <div class="dot-big" style="width:300px;height:300px;bottom:-60px;left:200px;background:var(--accent-2);opacity:0.24;"></div>
+  <div style="position:relative;z-index:2;">
+    <div style="display:flex;align-items:center;gap:24px;">
+      <div class="logo-box">79</div>
+      <div>
+        <div style="font-weight:700;font-size:40px;letter-spacing:-0.01em;">Atomic 79</div>
+        <div style="font-family:var(--font-mono);font-size:18px;color:var(--ink-3);letter-spacing:0.1em;margin-top:4px;">MOCKUP WEBSITE · 2026</div>
+      </div>
+    </div>
+    <h1 class="big" style="margin-top:80px;">เพจความรู้<br/>การเงิน<br/><span style="color:var(--accent)">สำหรับมือใหม่</span></h1>
+    <p class="sub" style="margin-top:32px;">เว็บไซต์จำลอง (Mockup) — Hi-fidelity prototype<br/>สำหรับงานส่งวิชานวัตกรรม</p>
+  </div>
+  <div class="footer-bar"><span>01 / 13 · TITLE</span><span>ATOMIC 79</span></div>
+</section>
+
+<!-- 02 PROBLEM -->
+<section data-label="Problem">
+  <div class="kicker">01 · PROBLEM</div>
+  <h2>ทำไมคนไทยถึงไม่เริ่ม<br/>เรื่อง<span style="color:var(--accent)">การเงิน</span>สักที?</h2>
+  <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:40px;">
+    <div class="card">
+      <div style="font-size:48px;">🤯</div>
+      <div style="font-size:28px;font-weight:600;margin-top:16px;">เนื้อหายากเกินไป</div>
+      <div style="font-size:20px;color:var(--ink-2);margin-top:8px;line-height:1.5;">NAV, DCA, ETF, SSF — ศัพท์เทคนิคเต็มไปหมด อ่านแล้วงง</div>
+    </div>
+    <div class="card">
+      <div style="font-size:48px;">😰</div>
+      <div style="font-size:28px;font-weight:600;margin-top:16px;">กลัวผิดพลาด</div>
+      <div style="font-size:20px;color:var(--ink-2);margin-top:8px;line-height:1.5;">กลัวลงทุนแล้วขาดทุน ไม่กล้าเริ่มเลยซักที</div>
+    </div>
+    <div class="card">
+      <div style="font-size:48px;">🤷</div>
+      <div style="font-size:28px;font-weight:600;margin-top:16px;">ไม่รู้จะเริ่มจากตรงไหน</div>
+      <div style="font-size:20px;color:var(--ink-2);margin-top:8px;line-height:1.5;">อยากออม อยากลงทุน แต่หาจุดเริ่มไม่เจอ</div>
+    </div>
+    <div class="card">
+      <div style="font-size:48px;">🙅</div>
+      <div style="font-size:28px;font-weight:600;margin-top:16px;">ไม่มีชุมชนที่ปลอดภัย</div>
+      <div style="font-size:20px;color:var(--ink-2);margin-top:8px;line-height:1.5;">ถามแล้วโดนขายของ หรือโดนตัดสิน</div>
+    </div>
+  </div>
+  <div class="footer-bar"><span>02 / 13 · PROBLEM</span><span>ATOMIC 79</span></div>
+</section>
+
+<!-- 03 PERSONAS -->
+<section data-label="Personas">
+  <div class="kicker">02 · TARGET AUDIENCE</div>
+  <h2>เราออกแบบให้ใคร?</h2>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:32px;">
+    <div class="card">
+      <div style="width:96px;height:96px;border-radius:24px;background:var(--bg-sunken);display:grid;place-items:center;font-size:56px;">🎓</div>
+      <div style="font-size:36px;font-weight:700;margin-top:20px;">น้องมิว</div>
+      <div style="font-family:var(--font-mono);font-size:18px;color:var(--ink-3);">นักศึกษา · 22 ปี</div>
+      <div style="padding:20px;background:var(--bg-sunken);border-radius:16px;margin-top:18px;font-size:20px;font-style:italic;color:var(--ink-2);">"อยากเริ่มออมแต่ไม่รู้<br/>จากตรงไหน"</div>
+    </div>
+    <div class="card">
+      <div style="width:96px;height:96px;border-radius:24px;background:var(--bg-sunken);display:grid;place-items:center;font-size:56px;">💼</div>
+      <div style="font-size:36px;font-weight:700;margin-top:20px;">พี่โอ</div>
+      <div style="font-family:var(--font-mono);font-size:18px;color:var(--ink-3);">มนุษย์เงินเดือน · 28 ปี</div>
+      <div style="padding:20px;background:var(--bg-sunken);border-radius:16px;margin-top:18px;font-size:20px;font-style:italic;color:var(--ink-2);">"มีเงินออมแล้ว<br/>ต่อไปควรทำยังไง"</div>
+    </div>
+    <div class="card">
+      <div style="width:96px;height:96px;border-radius:24px;background:var(--bg-sunken);display:grid;place-items:center;font-size:56px;">🎨</div>
+      <div style="font-size:36px;font-weight:700;margin-top:20px;">คุณแม่แนน</div>
+      <div style="font-family:var(--font-mono);font-size:18px;color:var(--ink-3);">Freelance · 34 ปี</div>
+      <div style="padding:20px;background:var(--bg-sunken);border-radius:16px;margin-top:18px;font-size:20px;font-style:italic;color:var(--ink-2);">"รายได้ไม่แน่นอน<br/>วางแผนยังไง"</div>
+    </div>
+  </div>
+  <div class="footer-bar"><span>03 / 13 · PERSONAS</span><span>ATOMIC 79</span></div>
+</section>
+
+<!-- 04 BIG IDEA -->
+<section data-label="Big Idea">
+  <div class="dot-big" style="width:600px;height:600px;top:-200px;right:-150px;"></div>
+  <div class="kicker" style="position:relative;z-index:2;">03 · BIG IDEA</div>
+  <h2 style="position:relative;z-index:2;max-width:1400px;">ให้ความรู้การเงิน<br/>ที่<span style="color:var(--accent)">เข้าใจง่าย</span> เข้าถึง<span style="color:var(--accent)">ฟรี</span>ทุกคน</h2>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:48px;position:relative;z-index:2;">
+    <div class="card" style="padding:28px;">
+      <div style="font-family:var(--font-mono);font-size:14px;color:var(--accent);letter-spacing:0.1em;">01</div>
+      <div style="font-size:24px;font-weight:700;margin:12px 0 8px;">Education-First</div>
+      <div style="font-size:18px;color:var(--ink-2);line-height:1.5;">ให้ความรู้ก่อน ไม่ขายของ</div>
+    </div>
+    <div class="card" style="padding:28px;">
+      <div style="font-family:var(--font-mono);font-size:14px;color:var(--accent);letter-spacing:0.1em;">02</div>
+      <div style="font-size:24px;font-weight:700;margin:12px 0 8px;">Short-Form</div>
+      <div style="font-size:18px;color:var(--ink-2);line-height:1.5;">เข้าใจได้ใน 3 นาที</div>
+    </div>
+    <div class="card" style="padding:28px;">
+      <div style="font-family:var(--font-mono);font-size:14px;color:var(--accent);letter-spacing:0.1em;">03</div>
+      <div style="font-size:24px;font-weight:700;margin:12px 0 8px;">Community</div>
+      <div style="font-size:18px;color:var(--ink-2);line-height:1.5;">ถามอะไรก็ไม่อาย</div>
+    </div>
+    <div class="card" style="padding:28px;">
+      <div style="font-family:var(--font-mono);font-size:14px;color:var(--accent);letter-spacing:0.1em;">04</div>
+      <div style="font-size:24px;font-weight:700;margin:12px 0 8px;">Freemium</div>
+      <div style="font-size:18px;color:var(--ink-2);line-height:1.5;">ฟรี + คอร์สสำหรับคนจริงจัง</div>
+    </div>
+  </div>
+  <div class="footer-bar"><span>04 / 13 · BIG IDEA</span><span>ATOMIC 79</span></div>
+</section>
+
+<!-- 05 OVERVIEW -->
+<section data-label="Overview">
+  <div class="kicker">04 · WEBSITE STRUCTURE</div>
+  <h2>โครงสร้างเว็บไซต์ 6 หน้า</h2>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,1fr);gap:22px;margin-top:40px;flex:1;">
+    <div class="card" style="padding:28px;display:flex;flex-direction:column;justify-content:space-between;">
+      <div style="font-family:var(--font-mono);font-size:60px;font-weight:700;color:var(--accent);line-height:1;">01</div>
+      <div>
+        <div style="font-size:28px;font-weight:700;">Landing</div>
+        <div style="font-size:18px;color:var(--ink-2);margin-top:4px;">หน้าแรก · Hero · Newsletter</div>
+      </div>
+    </div>
+    <div class="card" style="padding:28px;display:flex;flex-direction:column;justify-content:space-between;">
+      <div style="font-family:var(--font-mono);font-size:60px;font-weight:700;color:var(--accent);line-height:1;">02</div>
+      <div>
+        <div style="font-size:28px;font-weight:700;">Blog Listing</div>
+        <div style="font-size:18px;color:var(--ink-2);margin-top:4px;">รวมบทความทั้งหมด</div>
+      </div>
+    </div>
+    <div class="card" style="padding:28px;display:flex;flex-direction:column;justify-content:space-between;">
+      <div style="font-family:var(--font-mono);font-size:60px;font-weight:700;color:var(--accent);line-height:1;">03</div>
+      <div>
+        <div style="font-size:28px;font-weight:700;">Blog Article</div>
+        <div style="font-size:18px;color:var(--ink-2);margin-top:4px;">อ่านบทความ · Typography</div>
+      </div>
+    </div>
+    <div class="card" style="padding:28px;display:flex;flex-direction:column;justify-content:space-between;">
+      <div style="font-family:var(--font-mono);font-size:60px;font-weight:700;color:var(--accent);line-height:1;">04</div>
+      <div>
+        <div style="font-size:28px;font-weight:700;">Course</div>
+        <div style="font-size:18px;color:var(--ink-2);margin-top:4px;">Membership · 3 แพลน</div>
+      </div>
+    </div>
+    <div class="card" style="padding:28px;display:flex;flex-direction:column;justify-content:space-between;">
+      <div style="font-family:var(--font-mono);font-size:60px;font-weight:700;color:var(--accent);line-height:1;">05</div>
+      <div>
+        <div style="font-size:28px;font-weight:700;">Community</div>
+        <div style="font-size:18px;color:var(--ink-2);margin-top:4px;">ชุมชนถาม-ตอบ</div>
+      </div>
+    </div>
+    <div class="card" style="padding:28px;display:flex;flex-direction:column;justify-content:space-between;">
+      <div style="font-family:var(--font-mono);font-size:60px;font-weight:700;color:var(--accent);line-height:1;">06</div>
+      <div>
+        <div style="font-size:28px;font-weight:700;">Login / Sign up</div>
+        <div style="font-size:18px;color:var(--ink-2);margin-top:4px;">สมัครสมาชิก · เข้าสู่ระบบ</div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bar"><span>05 / 13 · STRUCTURE</span><span>ATOMIC 79</span></div>
+</section>
+
+<!-- 06-11 PAGE SHOWCASES -->
+<!-- 06 LANDING -->
+<section data-label="Landing">
+  <div class="kicker">PAGE 01</div>
+  <h2>Landing Page</h2>
+  <div style="display:grid;grid-template-columns:0.9fr 1.3fr;gap:48px;margin-top:24px;flex:1;align-items:center;">
+    <div>
+      <div class="pill pill-accent" style="font-size:18px;">● หน้าแรก</div>
+      <div style="font-size:26px;color:var(--ink-2);line-height:1.6;margin-top:20px;">หน้าแรกที่เปิดมาแล้วรู้เลยว่า<br/>เว็บนี้<strong style="color:var(--ink);">"เริ่มได้เลย"</strong></div>
+      <ul style="font-size:22px;color:var(--ink-2);line-height:1.8;margin-top:20px;padding-left:24px;">
+        <li>Hero — headline + CTA สมัคร</li>
+        <li>Category strip 6 หมวดหมู่</li>
+        <li>Featured articles</li>
+        <li>3 Personas + Newsletter signup</li>
+      </ul>
+    </div>
+    <div style="background:var(--bg-elev);border:1px solid var(--line);border-radius:20px;padding:24px;box-shadow:0 20px 50px -20px rgba(20,20,30,0.18);">
+      <div style="display:flex;gap:6px;margin-bottom:14px;"><div style="width:10px;height:10px;border-radius:50%;background:#ff5f57;"></div><div style="width:10px;height:10px;border-radius:50%;background:#febc2e;"></div><div style="width:10px;height:10px;border-radius:50%;background:#28c840;"></div></div>
+      <div style="height:28px;background:var(--bg-sunken);border-radius:8px;margin-bottom:14px;"></div>
+      <div style="font-size:48px;font-weight:700;letter-spacing:-0.02em;line-height:1.1;">เริ่มเรื่องเงิน<br/><span style="color:var(--accent);">ไม่ต้องรู้เยอะ</span></div>
+      <div style="display:flex;gap:10px;margin-top:18px;">
+        <div style="padding:12px 22px;background:var(--accent);color:#fff;border-radius:999px;font-size:16px;">สมัครฟรี →</div>
+        <div style="padding:12px 22px;border:1px solid var(--line-strong);border-radius:999px;font-size:16px;">เริ่มอ่าน</div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:24px;">
+        <div class="ph" style="aspect-ratio:1;font-size:12px;">cover</div>
+        <div class="ph" style="aspect-ratio:1;font-size:12px;">cover</div>
+        <div class="ph" style="aspect-ratio:1;font-size:12px;">cover</div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bar"><span>06 / 13 · LANDING</span><span>ATOMIC 79</span></div>
+</section>
+
+<!-- 07 BLOG LISTING -->
+<section data-label="Blog Listing">
+  <div class="kicker">PAGE 02</div>
+  <h2>Blog Listing</h2>
+  <div style="display:grid;grid-template-columns:1.3fr 0.9fr;gap:48px;margin-top:24px;flex:1;align-items:center;">
+    <div style="background:var(--bg-elev);border:1px solid var(--line);border-radius:20px;padding:24px;box-shadow:0 20px 50px -20px rgba(20,20,30,0.18);">
+      <div style="font-size:36px;font-weight:700;">บทความทั้งหมด</div>
+      <div style="display:flex;gap:8px;margin-top:14px;flex-wrap:wrap;">
+        <div style="padding:8px 14px;background:var(--ink);color:var(--bg);border-radius:999px;font-size:14px;">ทั้งหมด</div>
+        <div style="padding:8px 14px;border:1px solid var(--line-strong);border-radius:999px;font-size:14px;">🐷 ออม</div>
+        <div style="padding:8px 14px;border:1px solid var(--line-strong);border-radius:999px;font-size:14px;">📈 ลงทุน</div>
+        <div style="padding:8px 14px;border:1px solid var(--line-strong);border-radius:999px;font-size:14px;">🧾 ภาษี</div>
+        <div style="padding:8px 14px;border:1px solid var(--line-strong);border-radius:999px;font-size:14px;">💳 หนี้</div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px;">
+        <div><div class="ph" style="aspect-ratio:16/10;font-size:12px;">cover</div><div style="font-size:14px;font-weight:600;margin-top:8px;line-height:1.3;">DCA คืออะไร?</div></div>
+        <div><div class="ph" style="aspect-ratio:16/10;font-size:12px;">cover</div><div style="font-size:14px;font-weight:600;margin-top:8px;line-height:1.3;">ยื่นภาษีครั้งแรก</div></div>
+        <div><div class="ph" style="aspect-ratio:16/10;font-size:12px;">cover</div><div style="font-size:14px;font-weight:600;margin-top:8px;line-height:1.3;">ประกันสำหรับ Freelance</div></div>
+      </div>
+    </div>
+    <div>
+      <div class="pill pill-accent" style="font-size:18px;">● รวมบทความ</div>
+      <div style="font-size:26px;color:var(--ink-2);line-height:1.6;margin-top:20px;">กรองตามหมวดหมู่ที่สนใจ<br/>มีบทความ <strong style="color:var(--ink);">9+ เรื่อง</strong> ใน mockup</div>
+      <ul style="font-size:22px;color:var(--ink-2);line-height:1.8;margin-top:20px;padding-left:24px;">
+        <li>Featured article ด้านบน</li>
+        <li>Category filter chips</li>
+        <li>Grid 3 คอลัมน์</li>
+        <li>โหลดเพิ่ม / Pagination</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bar"><span>07 / 13 · BLOG LISTING</span><span>ATOMIC 79</span></div>
+</section>
+
+<!-- 08 BLOG ARTICLE -->
+<section data-label="Blog Article">
+  <div class="kicker">PAGE 03</div>
+  <h2>Blog Article</h2>
+  <div style="display:grid;grid-template-columns:0.9fr 1.3fr;gap:48px;margin-top:24px;flex:1;align-items:center;">
+    <div>
+      <div class="pill pill-accent" style="font-size:18px;">● อ่านบทความ</div>
+      <div style="font-size:26px;color:var(--ink-2);line-height:1.6;margin-top:20px;">Typography-first<br/>อ่านสบาย มีตัวอย่าง<strong style="color:var(--ink);">จริง</strong></div>
+      <ul style="font-size:22px;color:var(--ink-2);line-height:1.8;margin-top:20px;padding-left:24px;">
+        <li>Breadcrumb + tags</li>
+        <li>ตารางคำนวณ 50-30-20</li>
+        <li>Blockquote / สรุป</li>
+        <li>Related articles</li>
+      </ul>
+    </div>
+    <div style="background:var(--bg-elev);border:1px solid var(--line);border-radius:20px;padding:32px;box-shadow:0 20px 50px -20px rgba(20,20,30,0.18);">
+      <div style="font-size:14px;color:var(--ink-3);">บทความ / ลงทุน</div>
+      <div style="font-size:32px;font-weight:700;letter-spacing:-0.01em;line-height:1.15;margin-top:10px;">เงินเดือน 25k จะเริ่มลงทุนยังไง?</div>
+      <div style="font-size:16px;color:var(--ink-2);margin-top:10px;line-height:1.5;">แบ่งเงินเดือนตามเป้าหมายจริง · 3 ขั้นตอนก็เริ่มต้นได้</div>
+      <div style="background:var(--bg-sunken);border:1px solid var(--line);border-radius:14px;padding:18px;margin-top:18px;">
+        <div style="font-family:var(--font-mono);font-size:11px;color:var(--ink-3);letter-spacing:0.08em;margin-bottom:8px;">เงินเดือน 25,000</div>
+        <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px dashed var(--line-strong);font-size:15px;"><span><strong>50%</strong> ค่าใช้จ่ายจำเป็น</span><span style="font-family:var(--font-mono);">฿12,500</span></div>
+        <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px dashed var(--line-strong);font-size:15px;"><span><strong>30%</strong> ไลฟ์สไตล์</span><span style="font-family:var(--font-mono);">฿7,500</span></div>
+        <div style="display:flex;justify-content:space-between;padding:6px 0;font-size:15px;"><span style="color:var(--accent);"><strong>20%</strong> ออม + ลงทุน</span><span style="font-family:var(--font-mono);color:var(--accent);">฿5,000</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bar"><span>08 / 13 · ARTICLE</span><span>ATOMIC 79</span></div>
+</section>
+
+<!-- 09 COURSE -->
+<section data-label="Course">
+  <div class="kicker">PAGE 04</div>
+  <h2>Course / Membership</h2>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:32px;">
+    <div class="card" style="padding:32px;">
+      <div style="font-family:var(--font-mono);font-size:14px;color:var(--ink-3);letter-spacing:0.1em;">FREE</div>
+      <div style="font-size:56px;font-weight:700;letter-spacing:-0.02em;margin-top:10px;">฿0</div>
+      <div style="color:var(--ink-2);font-size:18px;margin-top:6px;">เริ่มต้นเรียนรู้</div>
+      <div style="padding:12px;background:var(--bg-sunken);border-radius:12px;margin-top:20px;font-size:16px;text-align:center;">สมัครฟรี</div>
+    </div>
+    <div class="card" style="padding:32px;border-color:var(--accent);border-width:2px;position:relative;transform:scale(1.03);box-shadow:0 20px 50px -20px rgba(20,20,30,0.25);">
+      <div style="position:absolute;top:-14px;left:24px;background:var(--accent);color:#fff;padding:4px 14px;border-radius:999px;font-size:13px;font-weight:600;">ยอดนิยม</div>
+      <div style="font-family:var(--font-mono);font-size:14px;color:var(--ink-3);letter-spacing:0.1em;">MEMBER</div>
+      <div style="font-size:56px;font-weight:700;letter-spacing:-0.02em;margin-top:10px;">฿199<span style="font-size:18px;color:var(--ink-3);font-weight:400;">/เดือน</span></div>
+      <div style="color:var(--ink-2);font-size:18px;margin-top:6px;">สำหรับคนอยากเอาจริง</div>
+      <div style="padding:12px;background:var(--accent);color:#fff;border-radius:12px;margin-top:20px;font-size:16px;text-align:center;">เริ่มแพลน Member</div>
+    </div>
+    <div class="card" style="padding:32px;">
+      <div style="font-family:var(--font-mono);font-size:14px;color:var(--ink-3);letter-spacing:0.1em;">PRO</div>
+      <div style="font-size:56px;font-weight:700;letter-spacing:-0.02em;margin-top:10px;">฿499<span style="font-size:18px;color:var(--ink-3);font-weight:400;">/เดือน</span></div>
+      <div style="color:var(--ink-2);font-size:18px;margin-top:6px;">มีที่ปรึกษา 1-on-1</div>
+      <div style="padding:12px;background:var(--bg-sunken);border-radius:12px;margin-top:20px;font-size:16px;text-align:center;">เริ่มแพลน Pro</div>
+    </div>
+  </div>
+  <div style="font-size:22px;color:var(--ink-2);margin-top:32px;max-width:1400px;line-height:1.6;">+ Course catalog 6 คอร์ส + FAQ + billing toggle (รายเดือน / รายปี)</div>
+  <div class="footer-bar"><span>09 / 13 · COURSE</span><span>ATOMIC 79</span></div>
+</section>
+
+<!-- 10 COMMUNITY -->
+<section data-label="Community">
+  <div class="kicker">PAGE 05</div>
+  <h2>Community</h2>
+  <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:48px;margin-top:32px;flex:1;align-items:center;">
+    <div>
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:18px;">
+        <div class="card" style="padding:24px;"><div style="font-family:var(--font-mono);font-size:42px;font-weight:700;color:var(--accent);">54k+</div><div style="font-size:16px;color:var(--ink-2);margin-top:4px;">สมาชิก</div></div>
+        <div class="card" style="padding:24px;"><div style="font-family:var(--font-mono);font-size:42px;font-weight:700;color:var(--accent);">12k+</div><div style="font-size:16px;color:var(--ink-2);margin-top:4px;">คำถาม-ตอบ</div></div>
+        <div class="card" style="padding:24px;"><div style="font-family:var(--font-mono);font-size:42px;font-weight:700;color:var(--ink);">&lt;2 ชม.</div><div style="font-size:16px;color:var(--ink-2);margin-top:4px;">เวลาตอบเฉลี่ย</div></div>
+        <div class="card" style="padding:24px;"><div style="font-family:var(--font-mono);font-size:42px;font-weight:700;color:var(--ink);">98%</div><div style="font-size:16px;color:var(--ink-2);margin-top:4px;">พอใจชุมชน</div></div>
+      </div>
+    </div>
+    <div>
+      <div class="pill pill-accent" style="font-size:18px;">● ชุมชนถาม-ตอบ</div>
+      <div style="font-size:32px;font-weight:700;margin-top:16px;line-height:1.2;">ถามอะไรก็ไม่อาย<br/>ไม่มีคำถามโง่</div>
+      <div style="font-size:20px;color:var(--ink-2);line-height:1.6;margin-top:16px;">3 ช่องทาง — Facebook Group, Line OA, Discord + กระทู้ล่าสุด + Top members</div>
+    </div>
+  </div>
+  <div class="footer-bar"><span>10 / 13 · COMMUNITY</span><span>ATOMIC 79</span></div>
+</section>
+
+<!-- 11 LOGIN -->
+<section data-label="Login">
+  <div class="kicker">PAGE 06</div>
+  <h2>Login / Sign up</h2>
+  <div style="display:grid;grid-template-columns:0.9fr 1.3fr;gap:48px;margin-top:24px;flex:1;align-items:center;">
+    <div>
+      <div class="pill pill-accent" style="font-size:18px;">● สมัครสมาชิก</div>
+      <div style="font-size:26px;color:var(--ink-2);line-height:1.6;margin-top:20px;">Split screen design<br/>มี<strong style="color:var(--ink);">social login</strong> 3 ช่องทาง</div>
+      <ul style="font-size:22px;color:var(--ink-2);line-height:1.8;margin-top:20px;padding-left:24px;">
+        <li>Google / Facebook / Line</li>
+        <li>Form — email + password</li>
+        <li>สลับ Login ↔ Sign up ได้</li>
+        <li>Benefits panel ด้านขวา</li>
+      </ul>
+    </div>
+    <div style="border:1px solid var(--line);border-radius:20px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;box-shadow:0 20px 50px -20px rgba(20,20,30,0.18);min-height:400px;">
+      <div style="background:var(--bg-elev);padding:32px;">
+        <div style="font-size:28px;font-weight:700;">ยินดีต้อนรับกลับ!</div>
+        <div style="color:var(--ink-2);margin-top:8px;font-size:16px;">เข้าสู่ระบบเพื่ออ่านต่อ</div>
+        <div style="display:flex;flex-direction:column;gap:8px;margin-top:20px;">
+          <div style="padding:12px;border:1px solid var(--line-strong);border-radius:10px;font-size:14px;text-align:center;">ดำเนินการต่อด้วย Google</div>
+          <div style="padding:12px;border:1px solid var(--line-strong);border-radius:10px;font-size:14px;text-align:center;">ดำเนินการต่อด้วย Facebook</div>
+        </div>
+        <div style="height:44px;background:var(--bg-sunken);border-radius:10px;margin-top:14px;"></div>
+        <div style="height:44px;background:var(--bg-sunken);border-radius:10px;margin-top:8px;"></div>
+        <div style="padding:14px;background:var(--accent);color:#fff;border-radius:999px;margin-top:14px;text-align:center;font-size:15px;">เข้าสู่ระบบ</div>
+      </div>
+      <div style="background:var(--ink);color:var(--bg);padding:32px;position:relative;overflow:hidden;">
+        <div style="position:absolute;top:-40px;right:-40px;width:160px;height:160px;border-radius:50%;background:var(--accent);opacity:0.7;"></div>
+        <div style="position:relative;">
+          <div style="font-family:var(--font-mono);font-size:12px;letter-spacing:0.1em;opacity:0.7;">MEMBER · UNLOCK</div>
+          <div style="font-size:26px;font-weight:700;margin-top:10px;line-height:1.2;">เข้าร่วม 128k+ คน</div>
+          <div style="font-size:14px;margin-top:14px;opacity:0.85;line-height:1.6;">✓ บทความฟรี<br/>✓ ชุมชนถาม-ตอบ<br/>✓ Template คำนวณ</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bar"><span>11 / 13 · LOGIN</span><span>ATOMIC 79</span></div>
+</section>
+
+<!-- 12 THEMES -->
+<section data-label="Themes">
+  <div class="kicker">DESIGN SYSTEM</div>
+  <h2>3 ธีมสี ปรับได้</h2>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px;flex:1;">
+    <div style="background:#F5EEE0;border:1px solid #CEC4AB;border-radius:24px;padding:32px;display:flex;flex-direction:column;">
+      <div style="display:flex;gap:8px;"><div style="width:56px;height:76px;background:#F5EEE0;border:2px solid #FFF;border-radius:8px;"></div><div style="width:56px;height:76px;background:#E68566;border:2px solid #FFF;border-radius:8px;margin-left:-10px;"></div><div style="width:56px;height:76px;background:#2A2F45;border:2px solid #FFF;border-radius:8px;margin-left:-10px;"></div></div>
+      <div style="font-size:32px;font-weight:700;color:#1F2340;margin-top:20px;">Sunrise</div>
+      <div style="color:#5A5F7A;font-size:18px;margin-top:6px;line-height:1.5;">ครีมอุ่น + ส้มคอรัล<br/>เป็นกันเอง สดใส</div>
+    </div>
+    <div style="background:#FAFAF8;border:1px solid #E0E0DC;border-radius:24px;padding:32px;display:flex;flex-direction:column;">
+      <div style="display:flex;gap:8px;"><div style="width:56px;height:76px;background:#FAFAF8;border:2px solid #FFF;border-radius:8px;"></div><div style="width:56px;height:76px;background:#2C7A57;border:2px solid #FFF;border-radius:8px;margin-left:-10px;"></div><div style="width:56px;height:76px;background:#1B1C1F;border:2px solid #FFF;border-radius:8px;margin-left:-10px;"></div></div>
+      <div style="font-size:32px;font-weight:700;color:#1B1C1F;margin-top:20px;">Chalk</div>
+      <div style="color:#5A5F7A;font-size:18px;margin-top:6px;line-height:1.5;">ขาวนวล + เขียวเข้ม<br/>editorial · อ่านสบาย</div>
+    </div>
+    <div style="background:#E6F1EC;border:1px solid #BED6CA;border-radius:24px;padding:32px;display:flex;flex-direction:column;">
+      <div style="display:flex;gap:8px;"><div style="width:56px;height:76px;background:#E6F1EC;border:2px solid #FFF;border-radius:8px;"></div><div style="width:56px;height:76px;background:#2D7562;border:2px solid #FFF;border-radius:8px;margin-left:-10px;"></div><div style="width:56px;height:76px;background:#F2B58F;border:2px solid #FFF;border-radius:8px;margin-left:-10px;"></div></div>
+      <div style="font-size:32px;font-weight:700;color:#1F3A30;margin-top:20px;">Mint</div>
+      <div style="color:#5A5F7A;font-size:18px;margin-top:6px;line-height:1.5;">มิ้นท์อ่อน + เขียว/พีช<br/>fresh · modern</div>
+    </div>
+  </div>
+  <div class="footer-bar"><span>12 / 13 · THEMES</span><span>ATOMIC 79</span></div>
+</section>
+
+<!-- 13 SUMMARY -->
+<section data-label="Summary">
+  <div class="dot-big" style="width:500px;height:500px;bottom:-120px;right:-80px;"></div>
+  <div class="kicker" style="position:relative;z-index:2;">THANK YOU</div>
+  <h1 class="big" style="position:relative;z-index:2;">จบการนำเสนอ<br/><span style="color:var(--accent)">ขอบคุณครับ</span></h1>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px;position:relative;z-index:2;">
+    <div class="card" style="padding:28px;">
+      <div style="font-family:var(--font-mono);font-size:52px;font-weight:700;color:var(--accent);">3</div>
+      <div style="font-size:22px;font-weight:600;margin-top:8px;">Personas</div>
+      <div style="font-size:16px;color:var(--ink-2);margin-top:4px;">นักศึกษา · มนุษย์เงินเดือน · Freelance</div>
+    </div>
+    <div class="card" style="padding:28px;">
+      <div style="font-family:var(--font-mono);font-size:52px;font-weight:700;color:var(--accent);">6</div>
+      <div style="font-size:22px;font-weight:600;margin-top:8px;">Pages</div>
+      <div style="font-size:16px;color:var(--ink-2);margin-top:4px;">Landing · Blog · Course · Community · Login</div>
+    </div>
+    <div class="card" style="padding:28px;">
+      <div style="font-family:var(--font-mono);font-size:52px;font-weight:700;color:var(--accent);">3</div>
+      <div style="font-size:22px;font-weight:600;margin-top:8px;">Themes</div>
+      <div style="font-size:16px;color:var(--ink-2);margin-top:4px;">Sunrise · Chalk · Mint</div>
+    </div>
+  </div>
+  <div class="footer-bar"><span>13 / 13 · FIN</span><span>ATOMIC 79 · MOCKUP 2026</span></div>
+</section>
+
+</deck-stage>
+
+<script src="deck-stage.js"></script>
+</body>
+</html>
